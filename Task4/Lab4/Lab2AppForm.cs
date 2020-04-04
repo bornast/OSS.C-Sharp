@@ -134,14 +134,7 @@ namespace Labs
 
 			if (asf.DialogResult == DialogResult.OK)
 			{
-				Shape shape = null;
-				
-				if (asf.getSelectedType() == 1)				
-					shape = new Circle(asf.getTextBoxInput());
-				if (asf.getSelectedType() == 2)
-					shape = new Square(asf.getTextBoxInput());
-				if (asf.getSelectedType() == 3)
-					shape = new Triangle(asf.getTextBoxInput());
+				Shape shape = CreateShapeFactory(asf);			
 
 				DataModel.getAllElementsList().Add(shape);
 
@@ -152,9 +145,19 @@ namespace Labs
 
 				asf.Dispose();
 			}
-
 		}
 		
+		private Shape CreateShapeFactory(AddShapeForm asf)
+		{
+			Shape shape = null;
+			if (asf.getSelectedType() == 1)
+				shape = new Circle(asf.getTextBoxInput());
+			else if (asf.getSelectedType() == 2)
+				shape = new Square(asf.getTextBoxInput());
+			else if (asf.getSelectedType() == 3)
+				shape = new Triangle(asf.getTextBoxInput());
+			return shape;
+		}
 
 	}
 }
