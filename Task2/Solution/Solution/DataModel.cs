@@ -12,6 +12,16 @@ namespace Solution
     {
         private static ArrayList ALL_ELEMENTS;
 
+        public delegate void CircleAddedHandler(string xyPos);
+
+        public static event CircleAddedHandler CircleAdded;        
+
+        public static void AddCircle(Circle circle)
+        {
+            ALL_ELEMENTS.Add(circle);
+            CircleAdded?.Invoke(string.Format("xPos: {0}, yPos: {1}", circle.GetXPos(), circle.GetYPos()));
+        }
+
         public DataModel()
         {
             ALL_ELEMENTS = new ArrayList();

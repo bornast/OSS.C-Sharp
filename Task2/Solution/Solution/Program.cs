@@ -77,6 +77,7 @@ namespace Solution
 
         private static void DoSubMenuCircle()
         {
+            DataModel.CircleAdded += ((string xyPos) => Console.WriteLine(xyPos));
             Console.WriteLine("You are in sub menu for circle - insert the value of radius:");
             Console.Write("Radius=");
             string input;
@@ -86,10 +87,12 @@ namespace Solution
                 if (input.Trim() != "")
                 {
                     try
-                    {
+                    {                        
                         double r = System.Convert.ToDouble(input);
                         Circle myCircle = new Circle(r);
-                        DataModel.GetAllElementsList().Add(myCircle);
+                        DataModel.AddCircle(myCircle);
+
+                        //DataModel.GetAllElementsList().Add(myCircle);
                         Console.WriteLine("New circle inserted!");
                         Console.Write("Do you want to insert one more circle? (y/n)");
 
@@ -117,8 +120,6 @@ namespace Solution
                         Console.Write("Radius=");
                     }
                 }
-
-
             }
         }
 
