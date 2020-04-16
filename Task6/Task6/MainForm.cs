@@ -32,7 +32,6 @@ namespace Task6
                 {
                     ListViewItem item = new ListViewItem
                     {
-                        Text = person.Name,
                         Tag = person
                     };
                     item.SubItems.Add(person.LastName);

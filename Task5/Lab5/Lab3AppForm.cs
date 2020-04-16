@@ -265,7 +265,6 @@ namespace Labs
 					tn.Text = square.ToString();
 					tn.Tag = square;
 					treeView1.Nodes[0].Nodes[1].Nodes.Add(tn);
-
 				}
 
 				label1.Text = "Total area=" + DataModel.getTotalArea() + ", Total perimeter=" + DataModel.getTotalPerimeter();
